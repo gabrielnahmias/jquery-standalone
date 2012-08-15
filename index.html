@@ -1,0 +1,73 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jquery-standalone Example</title>
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" src="jquery.standalone.js"></script>
+
+<style type="text/css">
+
+.conditional {
+	
+	display: none;
+	
+}
+
+/* Add anything you want to only appear if this is a standalone page inside the
+   .iphone-standalone class (it's added to the document root if so). */
+
+.iphone-standalone body {
+	
+	/* Add a little space at the top to compensate for the status bar (or whatever
+	   you want to call the iPhone's top bar with the battery meter, etc.). */
+	
+	padding-top: 20px;
+	
+}
+
+.iphone-standalone .conditional {
+	
+	display: block;
+	
+}
+
+.iphone-standalone .conditional2 {
+	
+	display: none;
+	
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="conditional">
+    
+    This only shows (<strong>through CSS</strong>) if <code>$.browser.standalone</code> is true (this page has been added to the
+    home screen of an iPhone).
+    
+</div>
+
+<div class="conditional2">
+    
+    This only shows (<strong>through CSS</strong>) if <code>$.browser.standalone</code> is false (any other situation besides native).
+    
+</div>
+
+<script type="text/javascript">
+
+alert("Standalone?  " + ( ($.browser.standalone) ? "Yes" : "No" ) + "." );
+
+</script>
+
+</body>
+
+</html>
